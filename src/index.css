@@ -6,29 +6,26 @@
   box-sizing: border-box;
 }
 
-html {
+html, body {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  overflow: hidden; /* remove all scrolling */
 }
 
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: url('./background.jpeg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 20px;
 }
 
@@ -38,13 +35,14 @@ code {
 }
 
 #root {
-  min-height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
 }
 
+/* Stopwatch Card Styles */
 .stopwatch-card {
   background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
   backdrop-filter: blur(10px);
@@ -226,31 +224,7 @@ code {
   transform: translateY(0);
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #764ba2, #667eea);
-}
-
-/* Focus styles for accessibility */
-button:focus,
-input:focus,
-textarea:focus {
-  outline: 2px solid #667eea;
-  outline-offset: 2px;
-}
 
 /* Mobile responsiveness */
 @media (max-width: 480px) {
@@ -279,17 +253,5 @@ textarea:focus {
     padding: 0.75rem 1.25rem;
     font-size: 0.9rem;
     min-width: 70px;
-  }
-}
-
-/* Smooth transitions for reduced motion users */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }
